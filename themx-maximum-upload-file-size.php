@@ -3,7 +3,7 @@
  * Plugin Name:       Themx Maximum Upload File Size
  * Plugin URI:        https://wordpress.org/plugins/themx-maximum-upload-file-size/
  * Description:       Increase maximum upload file size easily.
- * Version:           1.0.0
+ * Version:           1.0.5
  * Author:            Themexplosion
  * Author URI:        https://wordpress.org/plugins/themexplosion/
  * License:           GPL v2 or later
@@ -25,7 +25,6 @@ final class Tmufs {
 		$this->include_files();
 
 		add_action( 'plugin_loaded', [ $this, 'load_plugin_textdomain' ] );
-		add_action( 'wp_ajax_tmufs_admin_notice_ajax_object_save', 'tmufs_admin_notice_ajax_object_callback' );
 	}
 
 	/**
@@ -38,7 +37,7 @@ final class Tmufs {
 		define( 'TMUFS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		define( 'TMUFS_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'TMUFS_PLUGIN_URL', trailingslashit( plugins_url( '/', __FILE__ ) ) );
-		define( 'TMUFS_PLUGIN_VERSION', '1.0.0' );
+		define( 'TMUFS_PLUGIN_VERSION', get_file_data( TMUFS_PLUGIN_FILE, [ 'version' => 'Version' ], 'plugin' )['version'] );
 	}
 
 	/**
@@ -58,30 +57,6 @@ final class Tmufs {
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( 'tmufs', false, TMUFS_PLUGIN_PATH . '/languages/' );
 	}
-
-
-	/**
-	 * Click to hide success message via AJAX
-	 *
-	 * @return mixed
-	 */
-	public function tmufs_admin_notice_ajax_object_callback() {
-
-		$data = isset( $_POST['data'] ) ? sanitize_text_field( wp_unslash( $_POST['data'] ) ) : [];
-
-		if ( $data ) {
-			// Check valid request form user.
-			check_ajax_referer( 'tmufs_notice_status' );
-
-			update_option( 'tmufs_notice_disable_time', strtotime( '+6 Months' ) );
-
-			$response['message'] = 'sucess';
-			wp_send_json_success( $response );
-		}
-
-		wp_die();
-	}
-
 
 	/**
 	 * Initialize the plugin class

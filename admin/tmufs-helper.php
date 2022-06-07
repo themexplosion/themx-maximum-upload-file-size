@@ -8,8 +8,7 @@ function tmufs_wp_minimum_upload_file_size() {
 	if ( ! $wp_size ) {
 		$wp_size = 'unknown';
 	} else {
-		$wp_size = round( ( $wp_size / 1024 / 1024 ) );
-        $wp_size = $wp_size == 1024 ? '1GB' : $wp_size . 'MB'; //phpcs:ignore
+		$wp_size = round( $wp_size / 1024 / 1024 ) . 'MB';
 	}
 
 	return $wp_size;
@@ -47,16 +46,6 @@ function convertToBytes( string $from ): ?int {
 	return $number * ( 1024 ** $exponent );
 }
 
-// Check upload folder is writable.
-function tmufs_upload_filter_is_writable() {
-	$upload_dir                   = wp_upload_dir();
-	$base_dir                     = $upload_dir['basedir'];
-	$upload_dir_permission_status = '';
-	$upload_dir_permission_status = is_writable( $base_dir ) ? 0 : '1';
-
-	return $upload_dir_permission_status;
-}
-
 // WordPress minimum upload size .
 $tmufs_wp_minimum_upload_file_size = '40MB';
 
@@ -71,17 +60,10 @@ $tmufs_php_minimum_limit_time = '120';
 $tmufs_php_current_limit_time = ini_get( 'max_execution_time' );
 $tmufs_php_limit_time_status  = $tmufs_php_minimum_limit_time <= $tmufs_php_current_limit_time ? 1 : 0;
 
-// Check WordPress debug status.
-$tmufs_wp_debug_status = WP_DEBUG == true ? 1 : 0;
-
-// Check upload folder is writable.
-$tmufs_uplaod_folder_writable_status = tmufs_upload_filter_is_writable() == 0 ? 0 : 1;
-
-
 $system_status = [
 	[
 		'title'           => esc_html__( 'Maximum Upload Limit set by WordPress', 'tmufs' ),
-		'version'         => tmufs_wp_minimum_upload_file_size(),
+		'size'            => tmufs_wp_minimum_upload_file_size(),
 		'status'          => $tmufs_wp_upload_size_status,
 		'success_message' => esc_html__( '- ok', 'tmufs' ),
         'error_message' => esc_html__( 'Recommend : ', 'tmufs' ) . $tmufs_wp_minimum_upload_file_size,	//phpcs:ignore
@@ -89,7 +71,7 @@ $system_status = [
 
 	[
 		'title'           => esc_html__( 'Maximum Upload Limit Set By Hosting Provider', 'tmufs' ),
-		'version'         => tmufs_wp_upload_size_by_from_hosting(),
+		'size'            => tmufs_wp_upload_size_by_from_hosting(),
 		'status'          => $tmufs_wp_upload_size_status_from_hosting,
 		'success_message' => esc_html__( '- ok', 'tmufs' ),
         'error_message' => esc_html__( 'Recommend :  ', 'tmufs' ) . $tmufs_wp_minimum_upload_file_size, //phpcs:ignore
@@ -97,7 +79,7 @@ $system_status = [
 
 	[
 		'title'           => esc_html__( 'PHP Limit Time', 'tmufs' ),
-		'version'         => esc_html__( 'Current Limit Time: ', 'tmufs' ) . $tmufs_php_current_limit_time,
+		'size'            => esc_html__( 'Current Limit Time: ', 'tmufs' ) . $tmufs_php_current_limit_time,
 		'status'          => $tmufs_php_limit_time_status,
 		'success_message' => esc_html__( '- Ok', 'tmufs' ),
         'error_message' => esc_html__( 'Recommend : ', 'tmufs' ) . $tmufs_php_minimum_limit_time,	//phpcs:ignore

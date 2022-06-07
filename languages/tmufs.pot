@@ -1,0 +1,86 @@
+# Copyright (C) 2022 Themexplosion
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Themx Maximum Upload File Size 1.0.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/themx-maximum-upload-file-size\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-06-07T11:59:40+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: tmufs\n"
+
+#. Plugin Name of the plugin
+#: admin/templates/class-tmufs-template.php:20
+msgid "Themx Maximum Upload File Size"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/themx-maximum-upload-file-size/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Increase maximum upload file size easily."
+msgstr ""
+
+#. Author of the plugin
+msgid "Themexplosion"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wordpress.org/plugins/themexplosion/"
+msgstr ""
+
+#: admin/templates/class-tmufs-template.php:4
+msgid "Congratulations, Maximum Upload File Size Changed Successfully!"
+msgstr ""
+
+#: admin/templates/class-tmufs-template.php:26
+msgid "Title"
+msgstr ""
+
+#: admin/templates/class-tmufs-template.php:27
+msgid "Status"
+msgstr ""
+
+#: admin/templates/class-tmufs-template.php:28
+msgid "Message"
+msgstr ""
+
+#: admin/tmufs-helper.php:65
+msgid "Maximum Upload Limit set by WordPress"
+msgstr ""
+
+#: admin/tmufs-helper.php:68
+#: admin/tmufs-helper.php:76
+msgid "- ok"
+msgstr ""
+
+#: admin/tmufs-helper.php:69
+#: admin/tmufs-helper.php:85
+msgid "Recommend : "
+msgstr ""
+
+#: admin/tmufs-helper.php:73
+msgid "Maximum Upload Limit Set By Hosting Provider"
+msgstr ""
+
+#: admin/tmufs-helper.php:77
+msgid "Recommend :  "
+msgstr ""
+
+#: admin/tmufs-helper.php:81
+msgid "PHP Limit Time"
+msgstr ""
+
+#: admin/tmufs-helper.php:82
+msgid "Current Limit Time: "
+msgstr ""
+
+#: admin/tmufs-helper.php:84
+msgid "- Ok"
+msgstr ""
