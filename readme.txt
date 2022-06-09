@@ -8,95 +8,56 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Increase maximum upload file size limit to larger value. Increase upload limit - upload large files.
+Increase maximum upload file size limit to larger value. Increase upload limit, upload big files. Increase maximum execution time. Increase the time limit for uploading big files.
 
 == Description==
 
-### **Increase upload file size limit easily, with only one click.**
-Plugin automatically detects upload limits set by WordPress and by the server / hosting provider, and displays them.
+### **Simple & Lightweight WordPress plugin to increase maximum upload file size limit.**
+Plugin showcases upload file size set by both hosting provider / Server & WordPress. Also plugin showcases maximum execution time for the website.
 
-Access plugin's settings from the main WP admin menu.
+Easy to find settings in WordPress dashboard > Media.
 
-You can easily increase maximum upload file size. And also you can increase WordPress maximum execution time. some time extended maximum execution time when upload any attachment. From now with this plugin you can simply avoid this problem.
+You can easily increase maximum upload file size. And also you can increase WordPress maximum execution time. Upload big files, large attachments, for longer time. You can easily avoid upload file size limit and maximum execution time issues.
 
-### **Where to find Option to Increase Upload Limit.**
-Ok, After install the plugin then activate it. After activate the plugin go to your dashboard and go to media> Increase Upload Limit.
+### **Where to find the settings to Increase Upload Limit**
+Simply install the plugin, activate it, got to WordPress Dashboard > Media > Increase Maximum Upload Limit. Select the upload file size, and click on 'Save Changes'. The upload file size will be increased to the selected value. If you set the upload limit lower than recommended value you will see warnings.
 
 ### **Increase Maximum Execution Time.**
-Some time WordPress user can't upload new file with media due to extended execution time. With this plugin you can increase the execution time to avoid these issue. You need to set the execution time in input filed to set your own execution time according to your need.
+Some times WordPress user can't upload new file with media due to extended execution time. Get rid of this issue with the help of this plugin. In the input field, input your desired execution time in seconds, then click on 'Save Changes' button. The execution time will be change to the given value. If you set the execution time lower than recommended value you will see warnings.
 
 == Installation ==
 
 The usual, automatic way;
 
-1. Open WordPress admin, go to Plugins, click Add New
-2. Enter "increase maximum upload" in search and hit Enter
+1. Open WordPress admin dashboard, go to Plugins, click Add New
+2. Enter "themx maximum upload file size" in search and hit Enter
 3. Plugin will show up as the first on the list, click "Install Now"
-4. Activate & open plugin's settings page located in the main admin menu
+4. Activate & open plugin's settings page located in WordPress admin dashboard, Media
 
 Or if needed, install manually;
 
 1. Download the plugin.
 2. Unzip it and upload to _/wp-content/plugins/_
 3. Open WordPress admin - Plugins and click "Activate" next to the plugin
-4. Activate & open plugin's settings from Media>Increae Upload Size.
-
+4. Activate & open plugin's settings from Media > Increase Maximum Upload Limit
 
 == Screenshots ==
 1. Admin Panel for maximum upload file size.
 
-
 == Changelog ==
-
-1.0.8
--------------
-* Footer text issue fixed in admin page.
-* Header Notification remove from plugin setting page.
-
-1.0.7
--------------
-* WordPress latest versoin 5.9 compatibility added.
-* New value added in dropdown to upload maximum 2GB.
-
-1.0.6
--------------
-* WordPress latest versoin 5.8 compatibility added.
-
-1.0.5
--------------
-* Maximum Execution Time Increase Option Added.
-
-1.0.4
--------------
-* System Status Added.
-* WordPress latest version 5.7 compatibility checked.
-
-1.0.3
--------------
-* WordPress latest version 5.6 compatibility checked.
-
-1.0.2
--------------
-* WordPress latest version 5.5 compatibility checked.
-
-1.0.1
--------------
-* Test upto wordpress 5.4 latest version
 
 1.0.0
 -------------
-* Not Changelog yet. will are still working for update version
-
-
+* Not Changelog yet. still working on update.
 
 == Frequently Asked Questions ==
 
 = Does this plugin work with all servers and hosting providers? =
 
-Yes, it works with all servers. But, please know that server adjusted limits can't be changed from a WordPress plugin. If the server set limit is 16MB you can't increase it to 128MB via WordPress. You have to email your hosting provider and ask them to increase the limit. Install the plugin and it'll tell you what the limits are and what to do.
+Yes, it works with all servers. But, please know that server adjusted limits can't be changed from a WordPress plugin. If the server set limit is 16MB you can't increase it to 128MB via WordPress. You have to email your hosting provider and ask them to increase the limit. Install the plugin and it'll tell you what the limits are.
 
-= Increase upload file size but still not working? =
-If minimum upload limit set by hosting provider then its will not work. Ask your hositng provider to increase upload size.
+= Increased upload file size but still not working? =
+If minimum upload limit set by hosting provider then its will not work. Ask your hosting provider to increase upload size.
 
-= Increase maximum excecution time but not working? =
-If minimum execution time set by hosting provider then its will not work. Ask your hositng provider to increase excecution time limit.
+= Increased maximum execution time but not working? =
+If minimum execution time set by hosting provider then its will not work. Ask your hosting provider to increase execution timee limit.

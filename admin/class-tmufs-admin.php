@@ -20,14 +20,14 @@ class TMUFS_Admin {
 			add_filter( 'plugin_row_meta', [ __CLASS__, 'plugin_meta_links' ], 10, 2 );
 			add_filter( 'admin_footer_text', [ __CLASS__, 'admin_footer_text' ] );
 
-			if ( isset( $_POST['upload_max_file_size_field'] ) ) {
+			if ( isset( $_POST['tmufs_max_file_size_field'] ) ) {
 				$retrieved_nonce = isset( $_POST['upload_max_file_size_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['upload_max_file_size_nonce'] ) ) : '';
 
 				if ( ! wp_verify_nonce( $retrieved_nonce, 'upload_max_file_size_action' ) ) {
 					die( 'Are you cheating?' );
 				}
 
-				$max_size           = (int) $_POST['upload_max_file_size_field'] * 1024 * 1024;
+				$max_size           = (int) $_POST['tmufs_max_file_size_field'] * 1024 * 1024;
 				$max_execution_time = isset( $_POST['tmufs_maximum_execution_time'] ) ? sanitize_text_field( wp_unslash( (int) $_POST['tmufs_maximum_execution_time'] ) ) : '';
 				update_option( 'tmufs_maximum_execution_time', $max_execution_time );
 				update_option( 'max_file_size', $max_size );
@@ -98,8 +98,13 @@ class TMUFS_Admin {
 	}
 
 
-	// additional powered by text in admin footer; only on plugin's page
-	static function admin_footer_text( $text ) {
+	/**
+	 * Add additional admin footer text.
+	 *
+	 * @param string $text Footer text string.
+	 * @return string
+	 */
+	public static function admin_footer_text( $text ) {
 		if ( ! self::is_plugin_page() ) {
 			return $text;
 		}
@@ -110,14 +115,11 @@ class TMUFS_Admin {
 
 
 	/**
-	 * Add menu pages
-	 *
-	 * @since 1.0
+	 * Add submenu page under Media.
 	 *
 	 * @return void
 	 */
 	public static function tmufs_add_pages() {
-		// Adding a new menu under Media.
 		add_submenu_page(
 			'upload.php',
 			'Themx Maximum Upload File Size',

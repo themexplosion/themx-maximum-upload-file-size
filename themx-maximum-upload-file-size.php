@@ -23,6 +23,7 @@ final class Tmufs {
 	private function __construct() {
 		$this->define_constants();
 		$this->include_files();
+		$this->time_limit();
 
 		add_action( 'plugin_loaded', [ $this, 'load_plugin_textdomain' ] );
 	}
@@ -47,6 +48,16 @@ final class Tmufs {
 	 */
 	public function include_files() {
 		include_once TMUFS_PLUGIN_PATH . 'admin/class-tmufs-admin.php';
+	}
+
+	/**
+	 * Increase maximum execution time limit, default 600
+	 *
+	 * @return void
+	 */
+	public function time_limit() {
+		$tmufs_get_max_execution_time = get_option( 'tmufs_maximum_execution_time' ) != '' ? get_option( 'tmufs_maximum_execution_time' ) : ini_get( 'max_execution_time' );
+		set_time_limit( $tmufs_get_max_execution_time );
 	}
 
 	/**
@@ -85,10 +96,3 @@ function tmufs() {
 
 // Kick off the plugin.
 tmufs();
-
-/**
- * Increase maximum execution time.
- * Default 600.
- */
-$tmufs_get_max_execution_time = get_option( 'tmufs_maximum_execution_time' ) != '' ? get_option( 'tmufs_maximum_execution_time' ) : ini_get( 'max_execution_time' );
-set_time_limit( $tmufs_get_max_execution_time );
