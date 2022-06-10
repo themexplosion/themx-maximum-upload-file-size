@@ -3,13 +3,13 @@
  * Plugin Name:       Themx Maximum Upload File Size
  * Plugin URI:        https://wordpress.org/plugins/themx-maximum-upload-file-size/
  * Description:       Increase maximum upload file size easily.
- * Version:           1.0.5
+ * Version:           1.0.0
  * Author:            Themexplosion
- * Author URI:        https://wordpress.org/plugins/themexplosion/
+ * Author URI:        https://profiles.wordpress.org/themexplosion/
  * License:           GPL v2 or later
  * Text Domain:       tmufs
  * Requires at least: 4.0
- * Tested up to: 5.9
+ * Tested up to: 6.0
  * Requires PHP: 5.6
  * Domain Path: /languages/
  */

@@ -76,9 +76,14 @@ class TMUFS_Admin {
 	}
 
 
-	// Add settings link to plugins page.
-	static function plugin_action_links( $links ) {
-		$settings_link = '<a href="' . admin_url( 'upload.php?page=upload_max_file_size' ) . '" title="Adjust Max File Upload Size Settings">Settings</a>';
+	/**
+	 * Add settings link under plugin description
+	 *
+	 * @param array $links Links under plugin description.
+	 * @return array New list of links.
+	 */
+	public static function plugin_action_links( $links ) {
+		$settings_link = '<a href="' . admin_url( 'upload.php?page=themx_maximum_upload_file_size' ) . '" title="Adjust Max File Upload Size Settings">Settings</a>';
 
 		array_unshift( $links, $settings_link );
 
@@ -86,11 +91,18 @@ class TMUFS_Admin {
 	}
 
 
-	// add links to plugin's description in plugins table
-	static function plugin_meta_links( $links, $file ) {
+	/**
+	 * Add a link in the plugin row meta
+	 *
+	 * @param array  $links Array of links in plugin row meta.
+	 * @param string $file Name of the plugin __FILE__.
+	 *
+	 * @return string
+	 */
+	public static function plugin_meta_links( $links, $file ) {
 		$support_link = '<a target="_blank" href="https://wordpress.org/support/plugin/themx-maximum-upload-file-size/" title="Get help">Support</a>';
 
-		if ( $file == plugin_basename( __FILE__ ) ) {
+		if ( plugin_basename( TMUFS_PLUGIN_FILE ) == $file ) {
 			$links[] = $support_link;
 		}
 
@@ -131,10 +143,10 @@ class TMUFS_Admin {
 	}
 
 	/**
-	 * Undocumented function
+	 * Get closest output value for maximum file size uploads.
 	 *
-	 * @param float $search
-	 * @param array $arr
+	 * @param float $search Maximum size value.
+	 * @param array $arr Upload sizes.
 	 * @return null|int
 	 */
 	public static function get_closest( $search, $arr ) {

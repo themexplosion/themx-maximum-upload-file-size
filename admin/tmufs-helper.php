@@ -37,7 +37,7 @@ function tmufs_wp_upload_size_by_from_hosting() {
  *
  * @param string $from KB,MB etc.
  */
-function convert_to_bytes( string $from ): ?int {
+function tmufs_convert_to_bytes( string $from ): ?int {
 	$units  = [ 'B', 'KB', 'MB', 'GB', 'TB', 'PB' ];
 	$number = substr( $from, 0, - 2 );
 	$suffix = strtoupper( substr( $from, - 2 ) );
@@ -59,10 +59,10 @@ function convert_to_bytes( string $from ): ?int {
 $tmufs_wp_minimum_upload_file_size = '40MB';
 
 // Minimum WordPress upload size.
-$tmufs_wp_upload_size_status = convert_to_bytes( tmufs_wp_minimum_upload_file_size() ) < convert_to_bytes( $tmufs_wp_minimum_upload_file_size ) ? 0 : 1;
+$tmufs_wp_upload_size_status = tmufs_convert_to_bytes( tmufs_wp_minimum_upload_file_size() ) < tmufs_convert_to_bytes( $tmufs_wp_minimum_upload_file_size ) ? 0 : 1;
 
 // Minimum upload file size from hosting provider.
-$tmufs_wp_upload_size_status_from_hosting = convert_to_bytes( tmufs_wp_upload_size_by_from_hosting() ) < convert_to_bytes( $tmufs_wp_minimum_upload_file_size ) ? 0 : 1;
+$tmufs_wp_upload_size_status_from_hosting = tmufs_convert_to_bytes( tmufs_wp_upload_size_by_from_hosting() ) < tmufs_convert_to_bytes( $tmufs_wp_minimum_upload_file_size ) ? 0 : 1;
 
 // PHP Limit Time.
 $tmufs_php_minimum_limit_time = '120';
@@ -71,23 +71,23 @@ $tmufs_php_limit_time_status  = $tmufs_php_minimum_limit_time <= $tmufs_php_curr
 
 $system_status = [
 	[
-		'title'         => esc_html__( 'Maximum Upload Limit set by WordPress', 'tmufs' ),
+		'title'         => __( 'Maximum Upload Limit set by WordPress', 'tmufs' ),
 		'size'          => tmufs_wp_minimum_upload_file_size(),
 		'status'        => $tmufs_wp_upload_size_status,
-		'error_message' => esc_html__( 'Recommended : ', 'tmufs' ) . $tmufs_wp_minimum_upload_file_size,
+		'error_message' => __( 'Recommended : ', 'tmufs' ) . $tmufs_wp_minimum_upload_file_size,
 	],
 
 	[
-		'title'         => esc_html__( 'Maximum Upload Limit Set By Hosting Provider', 'tmufs' ),
+		'title'         => __( 'Maximum Upload Limit Set By Hosting Provider', 'tmufs' ),
 		'size'          => tmufs_wp_upload_size_by_from_hosting(),
 		'status'        => $tmufs_wp_upload_size_status_from_hosting,
-		'error_message' => esc_html__( 'Recommended :  ', 'tmufs' ) . $tmufs_wp_minimum_upload_file_size,
+		'error_message' => __( 'Recommended :  ', 'tmufs' ) . $tmufs_wp_minimum_upload_file_size,
 	],
 
 	[
-		'title'         => esc_html__( 'PHP Maximum Execution time', 'tmufs' ),
-		'size'          => $tmufs_php_current_limit_time . esc_html__( ' seconds', 'tmufs' ),
+		'title'         => __( 'PHP Maximum Execution time', 'tmufs' ),
+		'size'          => $tmufs_php_current_limit_time . __( ' seconds', 'tmufs' ),
 		'status'        => $tmufs_php_limit_time_status,
-		'error_message' => esc_html__( 'Recommended : ', 'tmufs' ) . $tmufs_php_minimum_limit_time . esc_html__( ' seconds', 'tmufs' ),
+		'error_message' => __( 'Recommended : ', 'tmufs' ) . $tmufs_php_minimum_limit_time . __( ' seconds', 'tmufs' ),
 	],
 ];

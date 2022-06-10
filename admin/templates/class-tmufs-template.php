@@ -38,7 +38,7 @@ $tmufs_max_execution_time = get_option( 'tmufs_maximum_execution_time' ) != '' ?
 							<?php printf( '%s', esc_html( $value['size'] ) ); ?>
 						</p>
 
-						<span class="recommendation"><?php echo $value['error_message']; //phpcs:ignore ?></span>
+						<span class="recommendation"><?php echo esc_html( $value['error_message'] ); ?></span>
 					</div>
 				<?php endif; ?>
 			</div>
