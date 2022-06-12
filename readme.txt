@@ -42,7 +42,7 @@ Or if needed, install manually;
 4. Activate & open plugin's settings from Media > Increase Maximum Upload Limit
 
 == Screenshots ==
-1. Admin Panel for maximum upload file size.
+1. Admin Panel for Themx Maximum Upload File Size.
 
 == Changelog ==
 
