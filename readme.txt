@@ -3,8 +3,8 @@ Contributors: themexplosion, arafatjamil01
 Tags: max upload file size, increase upload limit, increase file size limit, upload limit, post max size, upload file size, upload_max_filesize, Increase Maximum Execution Time
 Requires at least: 4.0
 Requires PHP: 5.6
-Tested up to: 6.1
-Stable tag: 1.0.1
+Tested up to: 6.7.1
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,6 +45,22 @@ Or if needed, install manually;
 1. Admin Panel for Themx Maximum Upload File Size.
 
 == Changelog ==
+
+1.0.4
+-------------
+* Tested with WordPress 6.7.1
+
+1.0.3
+-------------
+* Tested with WordPress 6.3.
+
+1.0.2
+-------------
+* Tested with WordPress 6.2.
+
+1.0.1
+-------------
+* Tested with WordPress 6.1.
 
 1.0.0
 -------------
